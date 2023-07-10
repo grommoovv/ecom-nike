@@ -1,0 +1,48 @@
+.card {
+  max-width: 580px;
+  .wrapper {
+    position: relative;
+    .imageWrap {
+      max-width: 100%;
+
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+
+      display: flex;
+      gap: 0 6px;
+
+      .category {
+        padding: 6px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        color: #111111;
+        background-color: #fff;
+      }
+
+      .link {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+        padding: 6px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        color: #111111;
+        background-color: #fff;
+      }
+    }
+
+    .title {
+      margin-top: 16px;
+      font-weight: bold;
+    }
+  }
+}

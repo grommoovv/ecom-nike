@@ -1,0 +1,26 @@
+.collection {
+  .title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .body {
+    display: flex;
+
+    .filter {
+      width: 260px;
+    }
+
+    .items {
+      width: 100%;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px 0;
+      }
+    }
+  }
+}

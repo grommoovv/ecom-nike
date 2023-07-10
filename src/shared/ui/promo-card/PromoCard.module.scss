@@ -1,0 +1,34 @@
+.card {
+  .wrapper {
+    position: relative;
+    .content {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        padding: 6px 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #111;
+        background-color: #fff;
+      }
+    }
+
+    .imageWrap {
+      max-width: 870px;
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

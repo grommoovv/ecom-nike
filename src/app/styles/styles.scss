@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@200;300;400;500;700&display=swap');
+
+@import 'normalize';
+@import './root.scss';
+
+:root {
+  --dark: #111;
+  --white: #fff;
+  --white75: rgba(255, 255, 255, 0.75);
+  --white50: rgba(255, 255, 255, 0.5);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark);
+
+  scroll-behavior: smooth;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: var(--dark);
+  }
+}
+
+a {
+  color: var(--dark);
+}
+
+#root {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: calc(100% - 2px);
+  min-height: 100vh;
+  main {
+    flex: 1 1 auto;
+    // display: flex;
+    // flex-direction: column;
+    // row-gap: 300px;
+  }
+}
+
+h1 {
+  font-size: 72px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-container {
+  margin: 20px 4vw;
+}

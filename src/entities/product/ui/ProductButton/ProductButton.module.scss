@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 40px;
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+
+  &._fill {
+    color: #fff;
+    background-color: #333;
+
+    &:hover {
+      background-color: #777;
+    }
+  }
+
+  &._stroke {
+    border: 1px solid #dadada;
+
+    &:hover {
+      border: 1px solid #333;
+    }
+  }
+}

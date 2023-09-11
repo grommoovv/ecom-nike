@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IProduct } from 'entities/product/model/types/product.interface'
-import { getOneProduct } from '../service/getOneProduct'
+import { getProduct } from '../thunk/productThunk'
 
 export interface IProductState {
   product: IProduct | null
@@ -14,22 +14,22 @@ const initialState: IProductState = {
   error: null,
 }
 
+const NAME = 'PRODUCT'
+
 export const productSlice = createSlice({
-  name: 'product',
+  name: NAME,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getOneProduct.pending, (state) => {
+      .addCase(getProduct.pending, (state) => {
         state.status = 'loading'
-        state.error = null
       })
-      .addCase(getOneProduct.fulfilled, (state, action) => {
+      .addCase(getProduct.fulfilled, (state, action) => {
         state.status = 'fulfilled'
         state.product = action.payload
-        state.error = null
       })
-      .addCase(getOneProduct.rejected, (state, action) => {
+      .addCase(getProduct.rejected, (state, action) => {
         state.status = 'rejected'
         state.error = action.payload
       })

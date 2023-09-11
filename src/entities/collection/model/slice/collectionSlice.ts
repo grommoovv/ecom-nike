@@ -1,38 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IProduct } from 'entities/product/model/types/product.interface'
-// import { getCollection } from '../service/getCollection'
+import { getCollection } from '../thunk/collectionThunk'
 import { products } from 'products'
 
 export interface ICollectionState {
   collection: IProduct[]
   status: 'idle' | 'loading' | 'fulfilled' | 'rejected'
-  error: unknown | null
+  error: string | undefined
 }
 
 const initialState: ICollectionState = {
   collection: products,
   status: 'idle',
-  error: null,
+  error: undefined,
 }
 
+const NAME = 'COLLECTION'
+
 export const collectionSlice = createSlice({
-  name: 'collection',
+  name: NAME,
   initialState,
   reducers: {},
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(getCollection.pending, (state) => {
-  //       state.status = 'loading'
-  //       state.error = null
-  //     })
-  //     .addCase(getCollection.fulfilled, (state, action) => {
-  //       state.collection = action.payload
-  //       state.status = 'fulfilled'
-  //       state.error = null
-  //     })
-  //     .addCase(getCollection.rejected, (state, action) => {
-  //       state.status = 'rejected'
-  //       state.error = action.payload
-  //     })
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCollection.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(getCollection.fulfilled, (state, action) => {
+        state.status = 'fulfilled'
+        state.collection = action.payload
+      })
+      .addCase(getCollection.rejected, (state, action) => {
+        state.status = 'rejected'
+        state.error = action.payload
+      })
+  },
 })

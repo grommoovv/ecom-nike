@@ -6,11 +6,13 @@ export interface ICart extends IProduct {
 }
 
 interface ICartState {
-  cartList: ICart[]
+  data: ICart[]
+  totalCount: number
 }
 
 const initialState: ICartState = {
-  cartList: [],
+  data: [],
+  totalCount: 0,
 }
 
 export const cartSlice = createSlice({
@@ -18,53 +20,48 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     toggleAddToCart(state, action: PayloadAction<IProduct>) {
-      const item = action.payload
-
       const newItem = {
-        ...item,
+        ...action.payload,
         quantity: 1,
       }
 
-      if (state.cartList.some((i) => i.id === newItem.id)) {
-        const idx = state.cartList.findIndex((i) => i.id === newItem.id)
-        if (idx !== -1) state.cartList.splice(idx, 1)
-      } else state.cartList.push(newItem)
+      if (state.data.some((i) => i.id === newItem.id)) {
+        const idx = state.data.findIndex((i) => i.id === newItem.id)
+        if (idx !== -1) state.data.splice(idx, 1)
+      }
+      state.data.push(newItem)
     },
 
     // Increment
     inc(state, action: PayloadAction<ICart>) {
-      const { cartList } = state
+      const { data } = state
       const quantityToAdd = action.payload
 
-      const itemIndex = cartList.findIndex(
-        (item) => item.id === quantityToAdd.id
-      )
+      const itemIndex = data.findIndex((item) => item.id === quantityToAdd.id)
       if (itemIndex !== -1) {
         const newItem = {
-          ...cartList[itemIndex],
-          quantity: cartList[itemIndex].quantity + 1,
+          ...data[itemIndex],
+          quantity: data[itemIndex].quantity + 1,
         }
-        cartList.splice(itemIndex, 1, newItem)
+        data.splice(itemIndex, 1, newItem)
       }
     },
 
     // Decrement
     dec(state, action: PayloadAction<ICart>) {
-      const { cartList } = state
+      const { data } = state
       const quantityToRemove = action.payload
 
-      const itemIndex = cartList.findIndex(
-        (item) => item.id === quantityToRemove.id
-      )
+      const itemIndex = data.findIndex((item) => item.id === quantityToRemove.id)
       if (itemIndex !== -1) {
-        if (cartList[itemIndex].quantity > 1) {
+        if (data[itemIndex].quantity > 1) {
           const newItem = {
-            ...cartList[itemIndex],
-            quantity: cartList[itemIndex].quantity - 1,
+            ...data[itemIndex],
+            quantity: data[itemIndex].quantity - 1,
           }
-          cartList.splice(itemIndex, 1, newItem)
+          data.splice(itemIndex, 1, newItem)
         } else {
-          cartList.splice(itemIndex, 1)
+          data.splice(itemIndex, 1)
         }
       }
     },

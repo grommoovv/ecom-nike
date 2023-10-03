@@ -1,0 +1,37 @@
+.footer {
+  &__menu {
+    &List {
+      display: flex;
+      flex-direction: column;
+      gap: 12px 0;
+    }
+
+    &Title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    &Item {
+      font-size: 12px;
+      line-height: 20px;
+      color: var(--white50);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      &:hover {
+        color: var(--white);
+      }
+    }
+  }
+}
+
+.subFooter__menuItem {
+  font-size: 12px;
+  line-height: 12px;
+  color: var(--white50);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    color: var(--white);
+  }
+}

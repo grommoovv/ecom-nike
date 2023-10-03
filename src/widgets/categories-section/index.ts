@@ -1,3 +1,1 @@
-import { CategoriesSection } from './ui/CategoriesSection'
-
-export { CategoriesSection }
+export { CategoriesSection } from './CategoriesSection'

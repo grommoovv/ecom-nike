@@ -1,3 +1,3 @@
-import { ProductPageLazy } from './ui/ProductPage.lazy'
+import React from 'react'
 
-export { ProductPageLazy }
+export const ProductPageLazy = React.lazy(() => import('./ProductPage'))

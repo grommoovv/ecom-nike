@@ -1,3 +1,3 @@
-import { CollectionPageLazy } from './ui/CollectionPage.lazy'
+import React from 'react'
 
-export { CollectionPageLazy }
+export const CollectionPageLazy = React.lazy(() => import('./CollectionPage'))

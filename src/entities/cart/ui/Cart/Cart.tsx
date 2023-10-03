@@ -1,11 +1,10 @@
-import { useAppSelector } from 'shared/hooks'
+import { useAppSelector } from '../../../../shared/hooks'
 import CartCheckout from '../CartCheckout/CartCheckout'
 import { CartList } from '../CartList/CartList'
 import cls from './Cart.module.scss'
-import { cartSelector } from 'entities/cart/model/selectors/cartSelector'
 
 export const Cart = () => {
-  const { length } = useAppSelector(cartSelector)
+  const { length } = useAppSelector((s) => s.CART.data)
 
   return (
     <>

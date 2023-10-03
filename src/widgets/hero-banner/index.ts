@@ -1,3 +1,1 @@
-import { HeroBanner } from './ui/HeroBanner'
-
-export { HeroBanner }
+export { HeroBanner } from './HeroBanner'

@@ -1,3 +1,1 @@
-import { PromoSection } from './ui/PromoSection'
-
-export { PromoSection }
+export { PromoSection } from './PromoSection'
